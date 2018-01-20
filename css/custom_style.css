@@ -1,0 +1,86 @@
+.calendar{
+    text-align:  center;
+    max-width: 550px;
+    margin:  auto;
+    border: solid;
+    border-color: #5c5edc;
+}
+
+.login-form{
+    margin-top: 3vh;
+}
+.signup-form{
+    margin-top: 3vh;
+}
+
+
+
+@media screen and (max-width: 40em){
+.bp-header.signup {
+}
+.signup-form input{
+}
+.form-control.half{
+    width: 70%;
+}
+}
+
+@media screen and (max-height: 30em){
+.bp-header {
+    padding: 40px 40px 1em;
+}
+}
+
+.modal-backdrop {
+    display: none;
+}
+
+.modal{
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content{
+    background: #2a2b30;
+}
+
+.day{
+    text-align: center;
+    color: #4f4f4f;
+    background-color: #ebebeb;
+    border-bottom: 2px solid white;
+    background-image: url(http://kylestetz.github.io/CLNDR/css/./triangle.svg);
+    background-size: cover;
+    background-position: center;
+}
+
+.day.today{
+    text-align: center;
+    background-color: #ebebeb;
+    background-image: none;
+}
+
+.days-of-the-week {
+    width: 100%;
+    background-color: #3883a3;
+}
+
+.header-day{
+    loat: left;
+    width: 14.2857%;
+    padding: 14px;
+    text-align: center;
+    color: white;
+}
+
+.badge {
+    display: unset;
+    /* padding: 0px 0em; */
+    font-size: 60%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: right;
+    white-space: nowrap;
+    vertical-align: text-bottom;
+    border-radius: 0.05rem;
+    float: right;
+}
