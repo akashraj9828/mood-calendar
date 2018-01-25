@@ -8,11 +8,12 @@ if ( isset( $_POST[ 'update_event' ] ) ) {
     $username = $_SESSION['u_uid'];
     $firstname =$_SESSION[ 'u_first'] ;
     $lastname=$_SESSION[ 'u_last' ];
-    $date = mysqli_real_escape_string( $conn, $_POST[ 'date-input-for-sql' ] );
-    $event = mysqli_real_escape_string( $conn, $_POST[ 'event-input' ] );
+    $date = mysqli_real_escape_string( $conn, $_POST[ 'date_input_for_sql' ] );
+    $event = mysqli_real_escape_string( $conn, $_POST[ 'event_input' ] );
+    $mood = mysqli_real_escape_string( $conn, $_POST[ 'mood_input' ] );
     // $story = $_POST[ 'story' ];
     
-     $sql="INSERT INTO $username (user_uid,user_first,user_last,event_date,event_data) VALUES ('$username','$firstname','$lastname','$date','$event')";
+     $sql="INSERT INTO $username (user_uid,user_first,user_last,event_date,event_data,mood) VALUES ('$username','$firstname','$lastname','$date','$event','$mood')";
 
 
 

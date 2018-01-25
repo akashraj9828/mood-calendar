@@ -1,9 +1,11 @@
-   
+
     
     <!-- pages stack -->
 	<div class="pages-stack">
+		
+		<!-- page -->
+		
 
-    <!-- page -->
 
 		<div class="page" id="page-home">
 			<!-- Blueprint header -->
@@ -24,7 +26,7 @@
 				</div>
 
 				<!-- Modal -->
-					<div class="modal fade" id="input_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal fade" id="input_modal" tabindex="-1" role="dialog" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered" role="document">
 							<div class="modal-content">
 							<div class="modal-header">
@@ -34,31 +36,41 @@
 								</button>
 							</div>
 							<div class="modal-body">
-								<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+							<!-- row start -->
+							<div class="row" id="event_container">
+								<div id='events' class='col'>
+								   <!-- content from clndr.script.php -->
+								</div>
+   								<div id="event_form" class="col">
+								<form name="event_input_form" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
 								<div class="form-group">
-									<label for="date-input" class="form-control-label">Date:</label>
-									<input type="text" class="form-control" id="date-input" name="date-input" readonly>
-									<input type="hidden" id="date-input-for-sql" name="date-input-for-sql" readonly>
+									<label for="date_input" class="form-control-label">Date:</label>
+									<input type="text" class="form-control" id="date_input" name="date_input" readonly>
+									<input type="hidden" id="date_input_for_sql" name="date_input_for_sql" readonly>
 								</div>
 								<div class="form-group">
-									<label for="event-input" class="form-control-label">Events:</label>
-									<textarea class="form-control" id="event-input" name="event-input"></textarea>
+									<label for="event_input" class="form-control-label">Events:</label>
+									<textarea class="form-control" id="event_input" name="event_input"></textarea>
 								</div>
 								<div class="form-group">
-									<label class="form-control-label">Mood:</label>
+									<label for="mood_input" class="form-control-label">Mood:</label>
+									<input type="text" class="form-control" id="mood_input" name="mood_input" readonly>
 									<br>
-									<a class="link link--social link--faded" href="#"><i class="fa fa-smile-o"></i><span class="text-hidden">Twitter</span></a>
-									<a class="link link--social link--faded" href="#"><i class="fa fa-frown-o"></i><span class="text-hidden">LinkedIn</span></a>
-									<a class="link link--social link--faded" href="#"><i class="fa fa-meh-o"></i><span class="text-hidden">Facebook</span></a>
+									<a class="link link--social link--faded" href="#"><i class="fa fa-smile-o" id="mood_icon" data-mood="happy"></i><span class="text-hidden">Twitter</span></a>
+									<a class="link link--social link--faded" href="#"><i class="fa fa-frown-o" id="mood_icon" data-mood="sad"></i><span class="text-hidden">LinkedIn</span></a>
+									<a class="link link--social link--faded" href="#"><i class="fa fa-meh-o" id="mood_icon" data-mood="meh"></i><span class="text-hidden">Facebook</span></a>
 									<!-- <a class="link link--social link--faded" href="#"><i class="fa fa-youtube-play"></i><span class="text-hidden">YouTube</span></a> -->
 								</div>
 								<div class="modal-footer">
+								<button type="button" class="btn btn-danger" id="toggle_form_events" onclick="toggle()">See Events</button>
 								<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 								<button type="submit" class="btn btn-primary" name="update_event">Update</button>
 								</div>
 								</form>
+								</div>
 							</div>
-							
+							<!-- row end -->
+							</div>
 							</div>
 					</div>
 					</div>
@@ -74,39 +86,39 @@
                 <div class="signup-form">
                     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                         <div class="form-group row form-row"> 
-                            <div class="form-group  col-md-2 col-xs-6  ">
+                            <div class="form-group  col-md-2 col-xs-6 col-6  ">
                             <input type="text" class="form-control" name="firstname" placeholder="First" required="required">
                             </div>
-                            <div class="form-group   col-md-2 col-xs-6 ">
+                            <div class="form-group   col-md-2 col-xs-6 col-6 ">
                             <input type="text" class="form-control" name="lastname" placeholder="Last" required="required">
 							</div>
                         </div>
                         <div class="form-group row form-row">
-                            <div class="form-group col-md-4 col-xs-12">
+                            <div class="form-group col-md-4 col-xs-12 col-12">
                             <input type="email" class="form-control" name="email" placeholder="Email" required="required">
                             </div>
                         </div>
                         <div class="form-group row form-row">
-                            <div class="form-group col-md-2 col-xs-6 ">
+                            <div class="form-group col-md-2 col-xs-6 col-6 ">
                             <input type="text" class="form-control" name="username" placeholder="Username" required="required">
                             </div>
-                            <div class="form-group col-md-2 col-xs-6  ">
+                            <div class="form-group col-md-2 col-xs-6 col-6  ">
                             <input type="password" class="form-control" name="password" placeholder="Password" required="required">
                             </div>
                         </div>
                         <div class="form-group row form-row">
-                            <div class="form-group col-md-4 col-xs-12">
+                            <div class="form-group col-md-4 col-xs-12 col-12">
                             <input type="text" class="form-control" name="about" placeholder="Something about you..">
                          	</div>
                         </div>
                         <div class="form-group row form-row">
-                            <div class="form-group col-md-2 col-xs-6 ">
+                            <div class="form-group col-md-2 col-xs-6 col-6 ">
                             <input type="number" class="form-control" name="phone" placeholder="Phone no.">
                             </div>
                         </div>
                         
                         <div class="form-group row form-row" >
-                            <div class="form-group col-md-2 col-xs-6 ">
+                            <div class="form-group col-md-2 col-xs-6 col-6 ">
                             <button type="submit" class="btn btn-primary" name="signup">Sign up</button>
                          </div>
                         </div>
@@ -125,18 +137,18 @@
                     <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
                        
 						<div class="form-group row form-row">
-							<div class="form-group  col-md-4 col-xs-6   ">
+							<div class="form-group  col-md-4 col-xs-6 col-10   ">
                             <label for="username">Username</label>
                             <input type="text" class="form-control" id="username" name="username" placeholder="Username/Email" >
                         	</div>
 						</div>
 						<div class="form-group row form-row">
-                            <div class="form-group  col-md-4 col-xs-6   ">
+                            <div class="form-group  col-md-4 col-xs-6 col-10   ">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="password" placeholder="Password">
 							</div>
 						</div>
-				</div>
+				
                         <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                         <button class="btn btn-primary" type="submit" name="login">Log In</button>
                         <p class="bp-header__desc">New user?  <a href="#page-signup">Signup here</a></p>
@@ -152,7 +164,6 @@
 
 
 
-
 		<div class="page" id="page-profile">
 			<header class="bp-header cf">
 				<h1 class="bp-header__title">Profile</h1>
@@ -163,6 +174,7 @@
 			</header>
 			<img class="poster" src="images/6.jpg" alt="img06" />
 		</div>
+
 
 
 		<div class="page" id="page-manuals">

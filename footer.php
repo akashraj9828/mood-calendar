@@ -32,29 +32,28 @@
 	
 	<script>
 	$(document).on("click", ".day-contents", function () {
-	
 	var full_date = $(this).data('date');
-	var date = moment(new Date(full_date));//.substr(0, 16)));
+	var date = moment(new Date(full_date));
     var formated_date = date.format("DD-MM-YYYY");
     var formated_date_for_sql = date.format("YYYY-MM-DD");
-    // var day = $(this).data('day');
-    // var month = $(this).data('month');
-    // var year = $(this).data('year');
-		// console.log(date);
-	$(".modal-body #date-input").val(formated_date);
-	$(".modal-body #date-input-for-sql").val(formated_date_for_sql);
-	
+	$(".modal-body #date_input").val(formated_date);
+	$(".modal-body #date_input_for_sql").val(formated_date_for_sql);
+	$("#events #date").val(formated_date_for_sql);
 	});
 
-	// $('#calendar').clndr({
-    // ready: function() {
-    //   var self = this;
-    //   $(this.element).on('mouseover', '.day', function(e) {
-    //     var target = self.buildTargetObject(e.currentTarget, true);
-    //     console.log(target);
-    //   });
-    // }
-	// });
+	$(document).on("click", "#mood_icon", function () {
+	var mood = $(this).data('mood');
+	$(".modal-body #mood_input").val(mood);
+	});
+
+
+	function toggle(){
+		if($("#events").is(':visible'))
+        $("#events").slideToggle("slow",function(){$("#event_form").slideToggle("slow")});
+		else
+        $("#event_form").slideToggle("slow",function(){$("#events").slideToggle("slow")});
+	}
+
 </script>
   
 </html>

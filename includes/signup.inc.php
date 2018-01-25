@@ -60,7 +60,8 @@ if(isset($_POST['signup'])){        //RUN THIS CODE ONLY IF ACCESS REQUEsT COMES
                                     user_last VARCHAR(256) NOT NULL COMMENT 'last name',
                                     event_reg_date  TIMESTAMP on update CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
                                     event_date datetime,
-                                    event_data MEDIUMBLOB NOT NULL COMMENT 'event details'
+                                    event_data MEDIUMBLOB NOT NULL COMMENT 'event details',
+                                    mood VARCHAR(256) NULL DEFAULT NULL COMMENT 'mood'
                                     )";
                                         //        | | | | | | | | | |   
 //creating private table for each user in stories database vvvvvvvvvvvvvvvvvvvv

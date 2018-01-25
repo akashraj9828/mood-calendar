@@ -41,8 +41,12 @@
 
 .modal-content{
     background: #2a2b30;
+    max-height: 90vh;
 }
-
+.modal-body {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
 .day{
     text-align: center;
     color: #4f4f4f;
@@ -84,3 +88,16 @@
     border-radius: 0.05rem;
     float: right;
 }
+
+#happy{
+    color: aqua;
+}
+
+#sad{
+    color: tomato;
+}
+
+#meh{
+    color: brown;
+}
+
